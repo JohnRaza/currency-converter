@@ -3,5 +3,5 @@ export const environment = {
   //local
   // baseUrl: 'http://localhost:3000/api/',
   //Production
-  baseUrl: 'https://currency-converter-server-6rarasua9-john-razas-projects.vercel.app/api/',
+  baseUrl: 'https://currency-converter-server-seven.vercel.app/api/',
 };
