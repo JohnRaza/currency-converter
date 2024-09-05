@@ -1,0 +1,59 @@
+<mat-card class="currency-converter-container">
+  <mat-card-header class="heading">
+    <mat-card-title>Currency Converter</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="conversionForm">
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>From</mat-label>
+        <mat-select formControlName="fromCurrency">
+          <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+            {{ currency.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>To</mat-label>
+        <mat-select formControlName="toCurrency">
+          <mat-option *ngFor="let currency of currencies" [value]="currency.code">
+            {{ currency.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="mat-form-field">
+        <mat-label>Amount</mat-label>
+        <input matInput formControlName="amount" type="number" />
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="convert()"
+        [disabled]="loading"
+      >
+        <mat-spinner *ngIf="loading" diameter="24"></mat-spinner>
+        <span *ngIf="!loading">Convert</span>
+      </button>
+    </form>
+
+    <div *ngIf="conversionResult !== null" class="conversion-result">
+      {{ conversionResult }}
+    </div>
+
+    <div *ngIf="conversionHistory.length" class="conversion-history">
+      <h3>Conversion History</h3>
+      <div
+        *ngFor="let record of conversionHistory"
+        class="conversion-history-item"
+      >
+        <span>{{ record.date }}</span>
+        <span>
+          {{ record.amount }} {{ record.from }} to {{ record.convertedAmount }}
+          {{ record.to }}
+        </span>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

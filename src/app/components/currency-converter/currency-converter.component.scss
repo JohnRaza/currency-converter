@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.currency-converter-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.heading {
+  justify-content: center;
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+.mat-card {
+  padding: 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.mat-select,
+.mat-input-element {
+  font-size: 1rem;
+}
+
+.conversion-result {
+  display: flex;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.conversion-history {
+  margin-top: 20px;
+  max-height: 80vh; /* Adjusts the maximum height to 80% of the viewport height */
+  overflow-y: auto;
+  height: auto; /* Allows the height to grow with content if it's below the max height */
+}
+
+.conversion-history-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 600px) {
+  .currency-converter-container {
+    padding: 10px;
+  }
+
+  .mat-card {
+    padding: 10px;
+  }
+
+  .conversion-result {
+    font-size: 1rem;
+  }
+
+  .conversion-history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px 0;
+  }
+  .conversion-history {
+    max-height: 55vh;
+    height: auto;
+  }
+}
+
+@media (max-width: 380px) {
+  .conversion-history {
+    max-height: 40vh;
+    height: auto;
+  }
+}
